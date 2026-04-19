@@ -1,0 +1,2503 @@
+<!doctype html>
+<html lang="sw">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AgriSmart Tanzania – Kumwezesha Mkulima</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Sora:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --green-deep: #1a4f2a;
+        --green-mid: #2d7a3a;
+        --green-light: #4caf6e;
+        --gold: #d4a017;
+        --gold-light: #f5c842;
+        --white: #f9f7f2;
+        --off-white: #edeade;
+        --text-dark: #0f2d18;
+        --text-muted: #4a6b52;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        font-family: "Sora", sans-serif;
+        background: var(--white);
+        color: var(--text-dark);
+        overflow-x: hidden;
+      }
+
+      /* ── NAV ── */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        padding: 14px 5%;
+        background: rgba(26, 79, 42, 0.97);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .nav-logo {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        flex: 1;
+      }
+
+      /* Coat of Arms placeholder – replaced by SVG emblem */
+      .coat-svg {
+        width: 52px;
+        height: 52px;
+        flex-shrink: 0;
+        filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.5));
+      }
+
+      .brand-text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.1;
+      }
+
+      .brand-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+        font-weight: 900;
+        color: var(--gold-light);
+        letter-spacing: 0.04em;
+      }
+
+      .brand-sub {
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.65);
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      nav ul {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+
+      nav a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 600;
+        transition: color 0.2s;
+      }
+
+      nav a:hover {
+        color: var(--gold-light);
+      }
+
+      /* ── HERO ── */
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        padding: 80px 5% 60px;
+        overflow: hidden;
+        background: linear-gradient(
+          160deg,
+          var(--green-deep) 0%,
+          #0e3319 55%,
+          #122b1c 100%
+        );
+      }
+
+      /* decorative leaf grid */
+      .hero::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+          radial-gradient(
+            circle at 70% 30%,
+            rgba(76, 175, 110, 0.12) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(212, 160, 23, 0.08) 0%,
+            transparent 45%
+          );
+        pointer-events: none;
+      }
+
+      .hero-grid {
+        position: absolute;
+        inset: 0;
+        background-image:
+          linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+          linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        background-size: 50px 50px;
+        pointer-events: none;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        max-width: 660px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        background: rgba(212, 160, 23, 0.15);
+        border: 1px solid rgba(212, 160, 23, 0.4);
+        border-radius: 999px;
+        padding: 6px 18px;
+        font-size: 0.75rem;
+        color: var(--gold-light);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 28px;
+        animation: fadeUp 0.6s ease both;
+      }
+
+      .hero-badge span {
+        font-size: 1rem;
+      }
+
+      h1.hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.2rem, 5vw, 3.8rem);
+        font-weight: 900;
+        line-height: 1.12;
+        color: #ffffff;
+        margin-bottom: 24px;
+        animation: fadeUp 0.7s 0.15s ease both;
+      }
+
+      h1.hero-title em {
+        color: var(--gold-light);
+        font-style: normal;
+      }
+
+      .hero-desc {
+        font-size: clamp(0.9rem, 1.6vw, 1.05rem);
+        color: rgba(255, 255, 255, 0.72);
+        line-height: 1.75;
+        max-width: 560px;
+        margin-bottom: 40px;
+        animation: fadeUp 0.7s 0.3s ease both;
+      }
+
+      .hero-cta {
+        display: flex;
+        gap: 16px;
+        flex-wrap: wrap;
+        animation: fadeUp 0.7s 0.45s ease both;
+      }
+
+      .btn {
+        display: inline-block;
+        padding: 14px 32px;
+        border-radius: 6px;
+        font-weight: 600;
+        font-size: 0.88rem;
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        cursor: pointer;
+        transition:
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+      }
+
+      .btn-primary {
+        background: var(--gold);
+        color: var(--green-deep);
+      }
+
+      .btn-outline {
+        border: 1.5px solid rgba(255, 255, 255, 0.45);
+        color: #fff;
+      }
+
+      .btn-outline:hover {
+        border-color: var(--gold-light);
+        color: var(--gold-light);
+      }
+
+      /* floating stat pills */
+      .hero-stats {
+        position: absolute;
+        right: 5%;
+        bottom: 12%;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+        z-index: 2;
+        animation: fadeLeft 0.8s 0.6s ease both;
+      }
+
+      .stat-pill {
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-left: 3px solid var(--gold);
+        border-radius: 8px;
+        padding: 14px 20px;
+        backdrop-filter: blur(10px);
+        min-width: 190px;
+      }
+
+      .stat-pill strong {
+        display: block;
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        color: var(--gold-light);
+      }
+
+      .stat-pill span {
+        font-size: 0.78rem;
+        color: rgba(255, 255, 255, 0.6);
+      }
+
+      /* ── SECTION BASE ── */
+      section {
+        padding: 88px 5%;
+      }
+
+      .section-label {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--green-mid);
+        border-bottom: 2px solid var(--gold);
+        padding-bottom: 4px;
+        margin-bottom: 16px;
+      }
+
+      h2.section-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.7rem, 3.5vw, 2.8rem);
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--green-deep);
+        margin-bottom: 20px;
+        max-width: 620px;
+      }
+
+      .section-body {
+        font-size: clamp(0.88rem, 1.4vw, 1rem);
+        color: var(--text-muted);
+        line-height: 1.8;
+        max-width: 720px;
+      }
+
+      /* ── ABOUT ── */
+      .about {
+        background: var(--off-white);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about::after {
+        content: "";
+        position: absolute;
+        right: -60px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 340px;
+        height: 340px;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle,
+          rgba(76, 175, 110, 0.12),
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 60px;
+        align-items: center;
+        margin-top: 48px;
+      }
+
+      .about-image-placeholder {
+        background: linear-gradient(
+          135deg,
+          var(--green-mid) 0%,
+          var(--green-deep) 100%
+        );
+        border-radius: 16px;
+        height: 340px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: rgba(255, 255, 255, 0.3);
+        font-size: 0.8rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        border: 2px dashed rgba(255, 255, 255, 0.15);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .about-image-placeholder::before {
+        content: "🌱";
+        font-size: 5rem;
+        opacity: 0.25;
+        position: absolute;
+      }
+
+      .about-points {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .about-point {
+        display: flex;
+        gap: 16px;
+        align-items: flex-start;
+      }
+
+      .about-icon {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--green-deep);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+
+      .about-point h4 {
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+
+      .about-point p {
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+      }
+
+      /* ── CARDS ── */
+      .features {
+        background: var(--white);
+      }
+
+      .features-header {
+        text-align: center;
+        margin-bottom: 56px;
+      }
+      .features-header h2,
+      .features-header .section-label {
+        display: block;
+        margin: 0 auto;
+      }
+      .features-header h2 {
+        text-align: center;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 28px;
+      }
+
+      .card {
+        background: var(--white);
+        border: 1px solid rgba(26, 79, 42, 0.1);
+        border-radius: 18px;
+        overflow: hidden;
+        transition:
+          transform 0.3s,
+          box-shadow 0.3s,
+          border-color 0.3s;
+        cursor: pointer;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 24px 60px rgba(26, 79, 42, 0.15);
+        border-color: var(--gold);
+      }
+
+      .card:hover .card-img-placeholder {
+        transform: scale(1.04);
+      }
+
+      .card-img-wrapper {
+        height: 190px;
+        overflow: hidden;
+        position: relative;
+      }
+
+      .card-img-placeholder {
+        width: 100%;
+        height: 100%;
+        transition: transform 0.4s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 4rem;
+      }
+
+      .card-img-placeholder.c1 {
+        background: linear-gradient(135deg, #174f35 0%, #1e7a4a 100%);
+      }
+      .card-img-placeholder.c2 {
+        background: linear-gradient(135deg, #2d5e1e 0%, #4a8b2a 100%);
+      }
+      .card-img-placeholder.c3 {
+        background: linear-gradient(135deg, #3a4a1a 0%, #6b7a2a 100%);
+      }
+      .card-img-placeholder.c4 {
+        background: linear-gradient(135deg, #1a3d4f 0%, #2a6b7a 100%);
+      }
+
+      .card-tag {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        background: rgba(26, 79, 42, 0.85);
+        color: var(--gold-light);
+        font-size: 0.68rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 99px;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        backdrop-filter: blur(6px);
+      }
+
+      .card-body {
+        padding: 24px 22px;
+      }
+
+      .card-icon {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+      }
+
+      .card-body h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 1.15rem;
+        color: var(--green-deep);
+        margin-bottom: 10px;
+      }
+
+      .card-body p {
+        font-size: 0.86rem;
+        color: var(--text-muted);
+        line-height: 1.7;
+      }
+
+      .card-arrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 16px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--green-mid);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        transition:
+          gap 0.2s,
+          color 0.2s;
+      }
+
+      .card:hover .card-arrow {
+        gap: 12px;
+        color: var(--gold);
+      }
+
+      /* ── IMPACT ── */
+      .impact {
+        background: linear-gradient(150deg, var(--green-deep) 0%, #0b2715 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .impact::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(
+          ellipse 60% 50% at 80% 50%,
+          rgba(212, 160, 23, 0.08) 0%,
+          transparent 70%
+        );
+        pointer-events: none;
+      }
+
+      .impact h2 {
+        color: #fff;
+      }
+      .impact .section-label {
+        color: var(--gold-light);
+        border-bottom-color: var(--gold-light);
+      }
+      .impact .section-body {
+        color: rgba(255, 255, 255, 0.65);
+        margin-top: 16px;
+      }
+
+      .impact-metrics {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 24px;
+        margin-top: 56px;
+      }
+
+      .metric-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 3px solid var(--gold);
+        border-radius: 14px;
+        padding: 30px 24px;
+        transition:
+          background 0.3s,
+          transform 0.3s;
+      }
+
+      .metric-card:hover {
+        background: rgba(255, 255, 255, 0.09);
+        transform: translateY(-4px);
+      }
+
+      .metric-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+      }
+
+      .metric-num {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--gold-light);
+        line-height: 1;
+        margin-bottom: 8px;
+      }
+
+      .metric-label {
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.6);
+        line-height: 1.5;
+      }
+
+      /* ── PARTNERS STRIP ── */
+      .partners {
+        background: var(--off-white);
+        padding: 48px 5%;
+        text-align: center;
+      }
+
+      .partners-title {
+        font-size: 0.75rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 28px;
+      }
+
+      .partners-logos {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+      }
+
+      .partner-badge {
+        background: #fff;
+        border: 1px solid rgba(26, 79, 42, 0.12);
+        border-radius: 10px;
+        padding: 10px 24px;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--green-deep);
+        letter-spacing: 0.04em;
+      }
+
+      /* ── FOOTER ── */
+      footer {
+        background: #061610;
+        color: rgba(255, 255, 255, 0.5);
+        padding: 56px 5% 32px;
+      }
+
+      .footer-top {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        gap: 48px;
+        margin-bottom: 48px;
+      }
+
+      .footer-brand-title {
+        font-family: "Playfair Display", serif;
+        font-size: 1.3rem;
+        color: var(--gold-light);
+        margin-bottom: 10px;
+      }
+
+      .footer-desc {
+        font-size: 0.83rem;
+        line-height: 1.75;
+      }
+
+      .footer-col h4 {
+        font-size: 0.8rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: rgba(255, 255, 255, 0.7);
+        margin-bottom: 18px;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .footer-col a {
+        color: rgba(255, 255, 255, 0.45);
+        text-decoration: none;
+        font-size: 0.83rem;
+        transition: color 0.2s;
+      }
+
+      .footer-col a:hover {
+        color: var(--gold-light);
+      }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        padding-top: 28px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+        font-size: 0.78rem;
+      }
+
+      .footer-vision {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 255, 255, 0.35);
+        font-size: 0.78rem;
+      }
+
+      .vision-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--gold);
+        animation: pulse 2s infinite;
+      }
+
+      /* ── ANIMATIONS ── */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(28px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeLeft {
+        from {
+          opacity: 0;
+          transform: translateX(40px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* ── RESPONSIVE ── */
+      @media (max-width: 900px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+        }
+        .about-image-placeholder {
+          height: 220px;
+        }
+        .hero-stats {
+          display: none;
+        }
+        .footer-top {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        nav ul {
+          display: none;
+        }
+        .hero {
+          padding: 60px 5% 48px;
+        }
+        .cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .footer-bottom {
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+
+      /* ══════════ MODAL STYLES ══════════ */
+      .card {
+        cursor: pointer;
+      }
+
+      .modal-overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(5, 20, 10, 0.75);
+        backdrop-filter: blur(6px);
+        z-index: 200;
+        animation: fadeOverlay 0.25s ease;
+      }
+      .modal-overlay.active {
+        display: block;
+      }
+
+      @keyframes fadeOverlay {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .modal {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -48%) scale(0.96);
+        opacity: 0;
+        z-index: 201;
+        width: min(780px, 95vw);
+        max-height: 88vh;
+        overflow-y: auto;
+        background: var(--white);
+        border-radius: 20px;
+        box-shadow: 0 40px 120px rgba(0, 0, 0, 0.45);
+        transition:
+          transform 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+          opacity 0.28s ease;
+        scrollbar-width: thin;
+        scrollbar-color: var(--green-light) transparent;
+      }
+
+      .modal.active {
+        display: block;
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+      }
+
+      .modal-close {
+        position: absolute;
+        top: 16px;
+        right: 18px;
+        z-index: 10;
+        background: rgba(255, 255, 255, 0.18);
+        border: none;
+        border-radius: 50%;
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        color: #fff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition:
+          background 0.2s,
+          transform 0.2s;
+      }
+      .modal-close:hover {
+        background: rgba(255, 255, 255, 0.32);
+        transform: rotate(90deg);
+      }
+
+      .modal-hero {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        padding: 32px 28px 24px;
+        border-radius: 20px 20px 0 0;
+        position: relative;
+      }
+      .modal-hero.c1 {
+        background: linear-gradient(135deg, #174f35, #1e7a4a);
+      }
+      .modal-hero.c2 {
+        background: linear-gradient(135deg, #2d5e1e, #4a8b2a);
+      }
+      .modal-hero.c3 {
+        background: linear-gradient(135deg, #3a4a1a, #5a7020);
+      }
+      .modal-hero.c4 {
+        background: linear-gradient(135deg, #1a3d4f, #1e6a80);
+      }
+
+      .modal-emoji {
+        font-size: 3rem;
+        flex-shrink: 0;
+      }
+
+      .modal-hero-text .modal-tag {
+        display: inline-block;
+        background: rgba(255, 255, 255, 0.18);
+        color: rgba(255, 255, 255, 0.9);
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        padding: 3px 12px;
+        border-radius: 99px;
+        margin-bottom: 8px;
+      }
+
+      .modal-hero-text h2 {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(1.3rem, 3vw, 1.8rem);
+        color: #fff;
+        margin-bottom: 6px;
+      }
+
+      .modal-hero-text p {
+        font-size: 0.88rem;
+        color: rgba(255, 255, 255, 0.75);
+        line-height: 1.6;
+      }
+
+      /* tabs */
+      .modal-tabs {
+        display: flex;
+        gap: 0;
+        border-bottom: 2px solid var(--off-white);
+        padding: 0 28px;
+        background: #fff;
+      }
+
+      .tab-btn {
+        background: none;
+        border: none;
+        padding: 14px 20px;
+        font-family: "Sora", sans-serif;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text-muted);
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        margin-bottom: -2px;
+        transition:
+          color 0.2s,
+          border-color 0.2s;
+        letter-spacing: 0.04em;
+      }
+      .tab-btn.active {
+        color: var(--green-deep);
+        border-bottom-color: var(--gold);
+      }
+      .tab-btn:hover {
+        color: var(--green-mid);
+      }
+
+      .modal-body {
+        padding: 28px 28px 0;
+      }
+
+      .tab-content {
+        display: none;
+      }
+      .tab-content.active {
+        display: block;
+        animation: fadeUp 0.3s ease;
+      }
+
+      .modal-intro {
+        font-size: 0.95rem;
+        color: var(--text-muted);
+        line-height: 1.75;
+        margin-bottom: 24px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid var(--off-white);
+      }
+
+      .modal-features-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+        margin-bottom: 24px;
+      }
+
+      @media (max-width: 560px) {
+        .modal-features-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .modal-feat {
+        display: flex;
+        gap: 14px;
+        align-items: flex-start;
+        background: var(--off-white);
+        border-radius: 12px;
+        padding: 16px;
+        transition: background 0.2s;
+      }
+      .modal-feat:hover {
+        background: #e4e2d6;
+      }
+
+      .feat-icon {
+        font-size: 1.6rem;
+        flex-shrink: 0;
+        line-height: 1;
+      }
+      .modal-feat strong {
+        display: block;
+        font-size: 0.88rem;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .modal-feat p {
+        font-size: 0.8rem;
+        color: var(--text-muted);
+        line-height: 1.6;
+        margin: 0;
+      }
+
+      /* steps */
+      .steps-list {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        margin-bottom: 8px;
+      }
+
+      .step {
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        padding: 18px;
+        border: 1px solid rgba(26, 79, 42, 0.1);
+        border-radius: 12px;
+        transition:
+          border-color 0.2s,
+          box-shadow 0.2s;
+      }
+      .step:hover {
+        border-color: var(--gold);
+        box-shadow: 0 4px 16px rgba(212, 160, 23, 0.12);
+      }
+
+      .step-num {
+        font-family: "Playfair Display", serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: var(--gold);
+        line-height: 1;
+        flex-shrink: 0;
+        min-width: 36px;
+      }
+      .step strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .step p,
+      .step div {
+        font-size: 0.83rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin: 0;
+      }
+      .step em {
+        color: var(--green-mid);
+        font-style: normal;
+        font-weight: 600;
+      }
+
+      /* benefits */
+      .benefits-list {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        margin-bottom: 8px;
+      }
+
+      .benefit {
+        display: flex;
+        gap: 14px;
+        padding: 16px;
+        background: linear-gradient(
+          135deg,
+          rgba(76, 175, 110, 0.06),
+          rgba(76, 175, 110, 0.02)
+        );
+        border-radius: 12px;
+        border-left: 3px solid var(--green-light);
+      }
+      .benefit-check {
+        font-size: 1.2rem;
+        flex-shrink: 0;
+      }
+      .benefit strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--green-deep);
+        margin-bottom: 4px;
+      }
+      .benefit p {
+        font-size: 0.82rem;
+        color: var(--text-muted);
+        line-height: 1.65;
+        margin: 0;
+      }
+
+      /* price table */
+      .price-table {
+        background: var(--green-deep);
+        border-radius: 12px;
+        overflow: hidden;
+        margin-top: 4px;
+        margin-bottom: 8px;
+      }
+      .price-header {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 0.8fr;
+        padding: 10px 16px;
+        background: rgba(0, 0, 0, 0.2);
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: rgba(255, 255, 255, 0.55);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+      .price-row {
+        display: grid;
+        grid-template-columns: 1.6fr 1fr 0.8fr;
+        padding: 12px 16px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        font-size: 0.84rem;
+        color: rgba(255, 255, 255, 0.85);
+        transition: background 0.15s;
+      }
+      .price-row:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+      .up {
+        color: #6effa0;
+        font-weight: 600;
+      }
+      .down {
+        color: #ff8c8c;
+        font-weight: 600;
+      }
+      .stable {
+        color: #ffd97d;
+        font-weight: 600;
+      }
+
+      /* loan table */
+      .loan-table {
+        margin-top: 16px;
+        border-radius: 12px;
+        overflow: hidden;
+        border: 1px solid rgba(26, 79, 42, 0.12);
+      }
+      .loan-header {
+        background: var(--green-deep);
+        color: var(--gold-light);
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        padding: 10px 16px;
+      }
+      .loan-row {
+        display: grid;
+        grid-template-columns: 1.5fr 1fr 1fr;
+        padding: 13px 16px;
+        border-top: 1px solid var(--off-white);
+        font-size: 0.83rem;
+        color: var(--text-dark);
+        transition: background 0.15s;
+      }
+      .loan-row:hover {
+        background: var(--off-white);
+      }
+      .loan-type {
+        font-weight: 600;
+        color: var(--green-deep);
+      }
+      .loan-rate {
+        color: var(--green-mid);
+        font-weight: 600;
+      }
+
+      /* advisory chips */
+      .advisory-categories {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-top: 8px;
+        margin-bottom: 8px;
+      }
+      .adv-chip {
+        background: var(--off-white);
+        border: 1px solid rgba(26, 79, 42, 0.15);
+        border-radius: 99px;
+        padding: 6px 14px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        color: var(--green-deep);
+        transition:
+          background 0.2s,
+          border-color 0.2s;
+        cursor: default;
+      }
+      .adv-chip:hover {
+        background: var(--green-deep);
+        color: var(--gold-light);
+        border-color: var(--green-deep);
+      }
+
+      /* modal footer */
+      .modal-footer-cta {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+        padding: 24px 28px 28px;
+        border-top: 1px solid var(--off-white);
+        margin-top: 24px;
+        position: sticky;
+        bottom: 0;
+        background: var(--white);
+      }
+      .modal-btn-primary {
+        flex: 1;
+        min-width: 180px;
+        padding: 14px 24px;
+        background: var(--green-deep);
+        color: var(--gold-light);
+        border: none;
+        border-radius: 8px;
+        font-family: "Sora", sans-serif;
+        font-size: 0.88rem;
+        font-weight: 700;
+        cursor: pointer;
+        letter-spacing: 0.03em;
+        transition:
+          background 0.2s,
+          transform 0.2s,
+          box-shadow 0.2s;
+      }
+      .modal-btn-primary:hover {
+        background: var(--green-mid);
+        transform: translateY(-2px);
+        box-shadow: 0 8px 24px rgba(26, 79, 42, 0.25);
+      }
+      .modal-btn-sec {
+        padding: 14px 22px;
+        background: none;
+        border: 1.5px solid rgba(26, 79, 42, 0.25);
+        color: var(--text-muted);
+        border-radius: 8px;
+        font-family: "Sora", sans-serif;
+        font-size: 0.86rem;
+        font-weight: 600;
+        cursor: pointer;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .modal-btn-sec:hover {
+        border-color: var(--green-mid);
+        color: var(--green-deep);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ══════════════ NAV ══════════════ -->
+    <nav>
+      <div class="nav-logo">
+        <!-- Tanzania Coat of Arms (stylized SVG) -->
+        <svg
+          class="coat-svg"
+          viewBox="0 0 100 100"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-label="Tanzania Coat of Arms"
+        >
+          <!-- shield base -->
+          <path
+            d="M50 8 L88 26 L88 62 Q88 82 50 94 Q12 82 12 62 L12 26 Z"
+            fill="#1a4f2a"
+            stroke="#d4a017"
+            stroke-width="2.5"
+          />
+          <!-- torch / uhuru flame -->
+          <ellipse cx="50" cy="28" rx="7" ry="10" fill="#f5c842" opacity=".9" />
+          <polygon points="50,14 46,28 50,24 54,28" fill="#f5a500" />
+          <!-- wavy lines (sea/land) -->
+          <path
+            d="M22 52 Q36 48 50 52 Q64 56 78 52"
+            stroke="#4fc3f7"
+            stroke-width="3"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <path
+            d="M22 60 Q36 56 50 60 Q64 64 78 60"
+            stroke="#4fc3f7"
+            stroke-width="2"
+            fill="none"
+            stroke-linecap="round"
+          />
+          <!-- mount Kilimanjaro silhouette -->
+          <polygon points="36,50 50,36 64,50" fill="#fff" opacity=".55" />
+          <!-- axe & hoe crossed -->
+          <line
+            x1="34"
+            y1="76"
+            x2="44"
+            y2="64"
+            stroke="#d4a017"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <line
+            x1="56"
+            y1="64"
+            x2="66"
+            y2="76"
+            stroke="#d4a017"
+            stroke-width="3"
+            stroke-linecap="round"
+          />
+          <!-- cloves bottom -->
+          <circle cx="42" cy="82" r="3" fill="#d4a017" />
+          <circle cx="50" cy="84" r="3" fill="#d4a017" />
+          <circle cx="58" cy="82" r="3" fill="#d4a017" />
+          <!-- border ring -->
+          <path
+            d="M50 8 L88 26 L88 62 Q88 82 50 94 Q12 82 12 62 L12 26 Z"
+            fill="none"
+            stroke="#f5c842"
+            stroke-width="1.2"
+            opacity=".4"
+          />
+        </svg>
+
+        <div class="brand-text">
+          <span class="brand-title">AgriSmart Tanzania</span>
+          <span class="brand-sub">Mfumo wa Kilimo cha Kidigitali</span>
+        </div>
+      </div>
+      <ul>
+        <li><a href="#about">Kuhusu</a></li>
+        <li><a href="#features">Vipengele</a></li>
+        <li><a href="#impact">Athari</a></li>
+        <li><a href="#contact">Wasiliana</a></li>
+      </ul>
+    </nav>
+
+    <!-- ══════════════ HERO ══════════════ -->
+    <section class="hero">
+      <div class="hero-grid"></div>
+      <div class="hero-content">
+        <div class="hero-badge">
+          <span>🇹🇿</span> Mpango wa Kitaifa 2025–2030
+        </div>
+        <h1 class="hero-title">
+          Kumwezesha Mkulima<br />Kupitia <em>Teknolojia Janja.</em>
+        </h1>
+        <p class="hero-desc">
+          AgriSmart Tanzania ni mfumo wa kidigitali unaounganisha wakulima na
+          taarifa muhimu kupitia <strong style="color: #fff">SMS/USSD</strong>,
+          app ya simu, na dashboard ya serikali — ili kuboresha uzalishaji,
+          kipato, na mustakabali wa kilimo nchini Tanzania.
+        </p>
+        <div class="hero-cta">
+          <a href="#features" class="btn btn-primary">Gundua Mfumo</a>
+          <a href="#about" class="btn btn-outline">Soma Zaidi</a>
+        </div>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat-pill">
+          <strong>5M+</strong>
+          <span>Wakulima walengwa</span>
+        </div>
+        <div class="stat-pill">
+          <strong>32%</strong>
+          <span>Ongezeko la uzalishaji</span>
+        </div>
+        <div class="stat-pill">
+          <strong>26</strong>
+          <span>Mikoa nchini Tanzania</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ ABOUT ══════════════ -->
+    <section class="about" id="about">
+      <span class="section-label">Kuhusu Mfumo</span>
+      <h2 class="section-title">Tatua Changamoto za Mkulima wa Tanzania</h2>
+      <p class="section-body">
+        Wakulima wengi wanakabiliwa na ukosefu wa taarifa sahihi za hali ya
+        hewa, masoko, na mbinu bora za kilimo. AgriSmart Tanzania, kwa
+        kushirikiana na <strong>Mamlaka ya Hali ya Hewa Tanzania (TMA)</strong>,
+        inatoa taarifa sahihi za mvua, kalenda ya upandaji, na tahadhari za
+        majanga moja kwa moja kwa mkulima — popote alipo.
+      </p>
+
+      <div class="about-grid">
+        <div class="about-image-placeholder">
+          <span
+            style="
+              position: relative;
+              z-index: 1;
+              font-size: 0.8rem;
+              opacity: 0.5;
+            "
+            ><picture><img src="pic.png" alt="Smart Agriculture" /></picture
+          ></span>
+        </div>
+
+        <div class="about-points">
+          <div class="about-point">
+            <div class="about-icon">🌦️</div>
+            <div>
+              <h4>Taarifa za Hali ya Hewa</h4>
+              <p>
+                Kwa kushirikiana na TMA, wakulima hupata utabiri wa eneo husika,
+                kalenda ya upandaji, na tahadhari za mapema za majanga kama
+                ukame na mafuriko.
+              </p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-icon">🛒</div>
+            <div>
+              <h4>Muunganiko na Masoko</h4>
+              <p>
+                Mkulima huunganishwa moja kwa moja na wanunuzi, kupunguza
+                mnyororo wa waagizia wa kati na kuongeza faida ya mkulima.
+              </p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-icon">📲</div>
+            <div>
+              <h4>Upatikanaji Rahisi</h4>
+              <p>
+                Inapatikana kupitia SMS/USSD (bila intaneti), app ya simu ya
+                Android, na dashboard ya serikali kwa wasimamizi wa wilaya.
+              </p>
+            </div>
+          </div>
+          <div class="about-point">
+            <div class="about-icon">🏛️</div>
+            <div>
+              <h4>Msaada wa Serikali</h4>
+              <p>
+                Dashboard ya serikali inaruhusu watendaji kupanga sera,
+                kufuatilia uzalishaji, na kutoa ruzuku kwa usahihi.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ FEATURES ══════════════ -->
+    <section class="features" id="features">
+      <div class="features-header">
+        <span class="section-label">Vipengele Muhimu</span>
+        <h2 class="section-title">Huduma Nne Zinazobadilisha Kilimo</h2>
+      </div>
+
+      <div class="cards-grid">
+        <!-- Card 1 -->
+        <div class="card" onclick="openModal('hewa')">
+          <div class="card-img-wrapper">
+            <div class="card-img-placeholder c1">🌦️</div>
+            <span class="card-tag">Hali ya Hewa</span>
+          </div>
+          <div class="card-body">
+            <h3>Taarifa za Hali ya Hewa</h3>
+            <p>
+              Pata utabiri sahihi wa eneo lako — mvua, jua, upepo — pamoja na
+              kalenda ya upandaji na tahadhari za majanga mara zinapotokea.
+            </p>
+            <span class="card-arrow">Jifunza zaidi →</span>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="card" onclick="openModal('masoko')">
+          <div class="card-img-wrapper">
+            <div class="card-img-placeholder c2">📈</div>
+            <span class="card-tag">Masoko</span>
+          </div>
+          <div class="card-body">
+            <h3>Masoko ya Mazao</h3>
+            <p>
+              Angalia bei halisi za mazao kwa wakati halisi na unganika moja kwa
+              moja na wanunuzi wa kuaminika — kupunguza hasara na kuongeza
+              mapato yako.
+            </p>
+            <span class="card-arrow">Jifunza zaidi →</span>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="card" onclick="openModal('kilimo')">
+          <div class="card-img-wrapper">
+            <div class="card-img-placeholder c3">🌱</div>
+            <span class="card-tag">Kilimo Bora</span>
+          </div>
+          <div class="card-body">
+            <h3>Ushauri wa Kilimo</h3>
+            <p>
+              Pata mwongozo wa mbegu bora, mbolea sahihi, na mbinu za kisasa za
+              kilimo — kutoka kwa wataalamu wa kilimo kupitia simu yako.
+            </p>
+            <span class="card-arrow">Jifunza zaidi →</span>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="card" onclick="openModal('fedha')">
+          <div class="card-img-wrapper">
+            <div class="card-img-placeholder c4">💳</div>
+            <span class="card-tag">Fedha</span>
+          </div>
+          <div class="card-body">
+            <h3>Huduma za Kifedha</h3>
+            <p>
+              Omba mkopo wa kilimo na bima ya mazao kwa urahisi kupitia mfumo —
+              bila gharama kubwa wala urasimu mwingi.
+            </p>
+            <span class="card-arrow">Jifunza zaidi →</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ MODALS ══════════════ -->
+
+    <!-- OVERLAY -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+    <!-- MODAL: Hali ya Hewa -->
+    <div class="modal" id="modal-hewa">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero c1">
+        <div class="modal-emoji">🌦️</div>
+        <div class="modal-hero-text">
+          <span class="modal-tag">Hali ya Hewa</span>
+          <h2>Taarifa za Hali ya Hewa</h2>
+          <p>
+            Mfumo wa utabiri wa hali ya hewa unaounganisha mkulima na Mamlaka ya
+            Hali ya Hewa Tanzania (TMA) moja kwa moja.
+          </p>
+        </div>
+      </div>
+      <div class="modal-tabs">
+        <button
+          class="tab-btn active"
+          onclick="switchTab(this, 'hewa', 'muhtasari')"
+        >
+          Muhtasari
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'hewa', 'jinsi')">
+          Jinsi Inavyofanya Kazi
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'hewa', 'faida')">
+          Faida
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-content active" id="hewa-muhtasari">
+          <p class="modal-intro">
+            AgriSmart Tanzania inashirikiana na
+            <strong>Mamlaka ya Hali ya Hewa Tanzania (TMA)</strong> kutoa
+            taarifa sahihi za hali ya hewa kwa kila mkulima, katika lugha ya
+            Kiswahili, moja kwa moja kwenye simu yake.
+          </p>
+          <div class="modal-features-grid">
+            <div class="modal-feat">
+              <span class="feat-icon">🌧️</span>
+              <div>
+                <strong>Utabiri wa Mvua</strong>
+                <p>
+                  Taarifa za mvua kwa siku 7 zijazo, maalum kwa kata au kijiji
+                  chako.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">📅</span>
+              <div>
+                <strong>Kalenda ya Upandaji</strong>
+                <p>
+                  Mfumo hushauri siku bora za kupanda mbegu kulingana na mvua
+                  inayotarajiwa.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">⚠️</span>
+              <div>
+                <strong>Tahadhari za Mapema</strong>
+                <p>
+                  Pokea onyo la mapema la ukame, mafuriko, au joto kali — saa 48
+                  kabla ya kutokea.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">🌡️</span>
+              <div>
+                <strong>Hali ya Sasa Hivi</strong>
+                <p>
+                  Angalia joto, unyevu, na nguvu ya upepo kwa wakati halisi
+                  katika eneo lako.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="hewa-jinsi">
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div>
+                <strong>Jiandikishe kwa SMS</strong>
+                <p>
+                  Piga namba <em>*152*00#</em> au tuma SMS "JIANDIKISHE [jina la
+                  kijiji]" kwa namba 15200. Hakuna simu ya kisasa inayohitajika.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div>
+                <strong>Thibitisha Eneo Lako</strong>
+                <p>
+                  Mfumo unatambua wilaya na kata yako kiotomatiki. Unaweza pia
+                  kubainisha hekta unayoilima na aina ya mazao.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div>
+                <strong>Pokea Taarifa Kila Siku</strong>
+                <p>
+                  Kila asubuhi saa 7:00 utapokea SMS yenye utabiri wa leo na
+                  kesho, pamoja na ushauri maalum wa kilimo.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div>
+                <strong>Pata Tahadhari Maalum</strong>
+                <p>
+                  Iwapo TMA itatangaza hali ya dharura ya hewa, utapokea ujumbe
+                  maalum wa tahadhari mara moja — bila kuchelewa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="hewa-faida">
+          <div class="benefits-list">
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Punguza Hasara ya Mazao</strong>
+                <p>
+                  Wakulima wanaotumia mfumo wamepunguza hasara ya mazao kwa
+                  ukame kwa wastani wa <strong>47%</strong> kulingana na
+                  majaribio ya awali mkoani Dodoma.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Panga Vizuri Zaidi</strong>
+                <p>
+                  Ujuzi wa mvua ya siku 7 unaruhusu mkulima kupanga kununua
+                  mbolea, mbegu na rasilimali nyingine kwa wakati muafaka.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Salama Wakati wa Majanga</strong>
+                <p>
+                  Tahadhari za mapema zimesaidia familia nyingi kuhamisha mazao
+                  yao na mifugo kabla ya mafuriko au ukame mkubwa.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Huduma Bila Malipo</strong>
+                <p>
+                  Huduma hii ni bure kabisa kwa wakulima wote wanaojisajili
+                  kupitia SMS — serikali inagharamia moja kwa moja.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-cta">
+        <button class="modal-btn-primary" onclick="closeModal()">
+          🚀 Jiandikishe Sasa — *152*00#
+        </button>
+        <button class="modal-btn-sec" onclick="closeModal()">Funga</button>
+      </div>
+    </div>
+
+    <!-- MODAL: Masoko -->
+    <div class="modal" id="modal-masoko">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero c2">
+        <div class="modal-emoji">📈</div>
+        <div class="modal-hero-text">
+          <span class="modal-tag">Masoko</span>
+          <h2>Masoko ya Mazao</h2>
+          <p>
+            Unganika moja kwa moja na wanunuzi wa ndani na nje — bei halisi,
+            bila madalali wasio wa lazima.
+          </p>
+        </div>
+      </div>
+      <div class="modal-tabs">
+        <button
+          class="tab-btn active"
+          onclick="switchTab(this, 'masoko', 'muhtasari')"
+        >
+          Muhtasari
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'masoko', 'jinsi')">
+          Jinsi Inavyofanya Kazi
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'masoko', 'faida')">
+          Faida
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-content active" id="masoko-muhtasari">
+          <p class="modal-intro">
+            Mfumo wa <strong>Masoko ya AgriSmart</strong> unaonyesha bei halisi
+            za mazao kutoka masoko makubwa ya Tanzania — Kariakoo, Mwanza,
+            Arusha, Mbeya — na kukuunganisha moja kwa moja na wanunuzi
+            wanaothibitishwa.
+          </p>
+          <div class="modal-features-grid">
+            <div class="modal-feat">
+              <span class="feat-icon">💹</span>
+              <div>
+                <strong>Bei za Wakati Halisi</strong>
+                <p>
+                  Angalia bei za mahindi, mpunga, korosho, kahawa, na mazao
+                  mengine — zilizosasishwa kila masaa 6.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">🤝</span>
+              <div>
+                <strong>Unganiko na Wanunuzi</strong>
+                <p>
+                  Wasiliana moja kwa moja na wanunuzi 500+ wanaothibitishwa bila
+                  mdalali wa kati.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">📊</span>
+              <div>
+                <strong>Mwenendo wa Bei</strong>
+                <p>
+                  Ona mwenendo wa bei ya miaka 3 ili kujua wakati bora wa kuuza
+                  mazao yako.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">🏪</span>
+              <div>
+                <strong>Soko la Kidijitali</strong>
+                <p>
+                  Weka tangazo la mazao yako kwenye soko la kidijitali —
+                  wanunuzi watakupigia simu.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="price-table">
+            <div class="price-header">
+              <span>Zao</span><span>Bei ya Sasa</span><span>Mwenendo</span>
+            </div>
+            <div class="price-row">
+              <span>🌽 Mahindi (debe)</span><span>Tsh 28,000</span
+              ><span class="up">↑ +8%</span>
+            </div>
+            <div class="price-row">
+              <span>🌾 Mpunga (debe)</span><span>Tsh 45,000</span
+              ><span class="stable">→ Imara</span>
+            </div>
+            <div class="price-row">
+              <span>☕ Kahawa (kg)</span><span>Tsh 6,200</span
+              ><span class="up">↑ +15%</span>
+            </div>
+            <div class="price-row">
+              <span>🥜 Korosho (kg)</span><span>Tsh 3,800</span
+              ><span class="down">↓ -3%</span>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="masoko-jinsi">
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div>
+                <strong>Tuma SMS ya Bei</strong>
+                <p>
+                  Piga <em>*152*01#</em> au tuma "BEI [jina la zao]" kwa 15200.
+                  Utapokea bei za masoko 5 makubwa mara moja.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div>
+                <strong>Weka Tangazo Lako</strong>
+                <div>
+                  Tuma "UZIA [zao] [kilo] [wilaya]" kwa 15200. Mfumo utaweka
+                  tangazo lako kwenye orodha ya wanunuzi.
+                </div>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div>
+                <strong>Pata Mawasiliano</strong>
+                <p>
+                  Wanunuzi wanaothibitishwa watakupigia simu au kukutumia ujumbe
+                  kuhusu mazao yako — ndani ya masaa 24.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div>
+                <strong>Malipo Salama</strong>
+                <p>
+                  Mfumo unaweza kusaidia kulinda makubaliano kupitia mfumo wa
+                  awamu ya malipo ya M-Pesa/Tigopesa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="masoko-faida">
+          <div class="benefits-list">
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Ongeza Mapato kwa 35%</strong>
+                <p>
+                  Wakulima wanaouza moja kwa moja wanapata mapato mengi zaidi —
+                  hadi <strong>35%</strong> zaidi kuliko kuuza kwa madalali.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Epuka Udanganyifu wa Bei</strong>
+                <p>
+                  Kwa kuona bei halisi za soko, hutaweza kudanganywa tena na
+                  waagizia wa kati wanaopunguza bei.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Fikia Masoko ya Pembezoni</strong>
+                <p>
+                  Hata ukiwa mbali na mji mkuu, unaweza kuuza mazao yako kwa
+                  wanunuzi wa Dar es Salaam au hata nje ya nchi.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Panga Mavuno Vizuri</strong>
+                <p>
+                  Mwenendo wa bei unakusaidia kupanga lini pa kuvuna na
+                  kuhifadhi — ili kuuza wakati bei ni juu.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-cta">
+        <button class="modal-btn-primary" onclick="closeModal()">
+          📊 Angalia Bei — *152*01#
+        </button>
+        <button class="modal-btn-sec" onclick="closeModal()">Funga</button>
+      </div>
+    </div>
+
+    <!-- MODAL: Ushauri wa Kilimo -->
+    <div class="modal" id="modal-kilimo">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero c3">
+        <div class="modal-emoji">🌱</div>
+        <div class="modal-hero-text">
+          <span class="modal-tag">Kilimo Bora</span>
+          <h2>Ushauri wa Kilimo</h2>
+          <p>
+            Wataalamu wa kilimo mkononi mwako — mbegu bora, mbolea sahihi, na
+            mbinu za kisasa za kuongeza mavuno.
+          </p>
+        </div>
+      </div>
+      <div class="modal-tabs">
+        <button
+          class="tab-btn active"
+          onclick="switchTab(this, 'kilimo', 'muhtasari')"
+        >
+          Muhtasari
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'kilimo', 'jinsi')">
+          Jinsi Inavyofanya Kazi
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'kilimo', 'faida')">
+          Faida
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-content active" id="kilimo-muhtasari">
+          <p class="modal-intro">
+            AgriSmart Tanzania inakupa
+            <strong>ushauri wa kitaalamu wa kilimo</strong> kupitia SMS, USSD,
+            au app — bila haja ya kufika ofisini. Wataalamu wa Wizara ya Kilimo
+            wanashirikiana na mfumo kutoa mwongozo wa kila siku.
+          </p>
+          <div class="modal-features-grid">
+            <div class="modal-feat">
+              <span class="feat-icon">🌿</span>
+              <div>
+                <strong>Uteuzi wa Mbegu Bora</strong>
+                <p>
+                  Pata ushauri wa aina bora ya mbegu kwa udongo wako, mvua ya
+                  eneo lako, na soko unalolengea.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">💊</span>
+              <div>
+                <strong>Mwongozo wa Mbolea</strong>
+                <p>
+                  Jua aina sahihi ya mbolea, kiasi kinachohitajika kwa hekta, na
+                  wakati bora wa kuomba kwa mavuno bora.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">🐛</span>
+              <div>
+                <strong>Udhibiti wa Wadudu</strong>
+                <p>
+                  Toa picha ya mmea wenye ugonjwa — mfumo utatambua tatizo na
+                  kupendekeza dawa sahihi.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">💧</span>
+              <div>
+                <strong>Umwagiliaji Bora</strong>
+                <p>
+                  Ushauri wa mifumo ya umwagiliaji bora kwa kila aina ya zao —
+                  punguza matumizi ya maji kwa 30%.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="advisory-categories">
+            <span class="adv-chip">🌽 Nafaka</span>
+            <span class="adv-chip">🥬 Mboga</span>
+            <span class="adv-chip">☕ Bidhaa za Biashara</span>
+            <span class="adv-chip">🍌 Matunda</span>
+            <span class="adv-chip">🐄 Mifugo</span>
+            <span class="adv-chip">🐟 Uvuvi</span>
+          </div>
+        </div>
+        <div class="tab-content" id="kilimo-jinsi">
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div>
+                <strong>Omba Ushauri kwa SMS</strong>
+                <p>
+                  Tuma "USHAURI [jina la zao] [tatizo]" kwa 15200. Mfano:
+                  "USHAURI MAHINDI MAJANI YANAKAUKA".
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div>
+                <strong>Picha ya Tatizo (App)</strong>
+                <p>
+                  Kwa kutumia app, piga picha ya mmea wenye tatizo. AI ya mfumo
+                  itatambua ugonjwa kwa sekunde 30.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div>
+                <strong>Pata Jibu la Haraka</strong>
+                <p>
+                  Ndani ya dakika 15, utapokea jibu kutoka kwa mtaalamu wa
+                  kilimo au mfumo wa AI wenye ushauri kamili.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div>
+                <strong>Fuatilia Mpango Wako</strong>
+                <p>
+                  Mfumo huweka rekodi ya mazao yako na kukukumbusha shughuli
+                  muhimu — kupanda, kuomba mbolea, kunyunyiza dawa.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="kilimo-faida">
+          <div class="benefits-list">
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Ongeza Mavuno kwa 40%</strong>
+                <p>
+                  Matumizi ya mbegu bora na mbolea sahihi yameongeza mavuno ya
+                  mahindi kwa wastani wa <strong>40%</strong> katika vijiji vya
+                  majaribio.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Punguza Gharama za Dawa</strong>
+                <p>
+                  Kutambua ugonjwa mapema kunapunguza gharama za dawa kwa
+                  <strong>60%</strong> — badala ya kunyunyiza bila mpango.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Hifadhi Rasilimali</strong>
+                <p>
+                  Ushauri sahihi wa mbolea unapunguza matumizi ya ziada ya
+                  kemikali, kulinda afya ya udongo na mazingira.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Ujifunzaji wa Muda Mrefu</strong>
+                <p>
+                  Mfumo hukusaidia kujifunza polepole — baada ya miaka 2,
+                  utakuwa na ujuzi wa kujitegemea.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-cta">
+        <button class="modal-btn-primary" onclick="closeModal()">
+          🌿 Omba Ushauri — *152*02#
+        </button>
+        <button class="modal-btn-sec" onclick="closeModal()">Funga</button>
+      </div>
+    </div>
+
+    <!-- MODAL: Huduma za Kifedha -->
+    <div class="modal" id="modal-fedha">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div class="modal-hero c4">
+        <div class="modal-emoji">💳</div>
+        <div class="modal-hero-text">
+          <span class="modal-tag">Huduma za Kifedha</span>
+          <h2>Mikopo na Bima ya Mazao</h2>
+          <p>
+            Pata mkopo wa kilimo na bima ya mazao kwa urahisi — bila urasimu
+            mkubwa, bila dhamana ngumu.
+          </p>
+        </div>
+      </div>
+      <div class="modal-tabs">
+        <button
+          class="tab-btn active"
+          onclick="switchTab(this, 'fedha', 'muhtasari')"
+        >
+          Muhtasari
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'fedha', 'jinsi')">
+          Jinsi Inavyofanya Kazi
+        </button>
+        <button class="tab-btn" onclick="switchTab(this, 'fedha', 'faida')">
+          Faida
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="tab-content active" id="fedha-muhtasari">
+          <p class="modal-intro">
+            AgriSmart Tanzania inashirikiana na
+            <strong>benki za kilimo, SACCOS, na kampuni za bima</strong> kutoa
+            huduma za kifedha zinazofaa kwa mahitaji ya mkulima wa Tanzania —
+            kupitia simu yako tu.
+          </p>
+          <div class="modal-features-grid">
+            <div class="modal-feat">
+              <span class="feat-icon">🏦</span>
+              <div>
+                <strong>Mkopo wa Kilimo</strong>
+                <p>
+                  Omba mkopo wa kununulia mbegu, mbolea, na zana — riba nafuu,
+                  muda wa kulipa baada ya mavuno.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">🛡️</span>
+              <div>
+                <strong>Bima ya Mazao</strong>
+                <p>
+                  Linda mazao yako dhidi ya ukame, mafuriko, na wadudu — malipo
+                  ya bima yaliyolipwa kupitia simu.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">💰</span>
+              <div>
+                <strong>Akiba ya Dijitali</strong>
+                <p>
+                  Weka akiba ya pesa za kilimo — mfumo unasaidia kupanga na
+                  kuhifadhi mapato yako ya mavuno.
+                </p>
+              </div>
+            </div>
+            <div class="modal-feat">
+              <span class="feat-icon">📱</span>
+              <div>
+                <strong>Malipo ya Simu</strong>
+                <p>
+                  Lipa gharama za kilimo na pokea malipo ya mazao kupitia
+                  M-Pesa, Tigopesa, au Airtel Money.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="loan-table">
+            <div class="loan-header">Aina ya Mkopo</div>
+            <div class="loan-row">
+              <span class="loan-type">🌱 Mkopo wa Mbegu</span
+              ><span>Hadi Tsh 500,000</span
+              ><span class="loan-rate">Riba 8%/mwaka</span>
+            </div>
+            <div class="loan-row">
+              <span class="loan-type">🚜 Mkopo wa Zana</span
+              ><span>Hadi Tsh 5,000,000</span
+              ><span class="loan-rate">Riba 10%/mwaka</span>
+            </div>
+            <div class="loan-row">
+              <span class="loan-type">🏗️ Mkopo wa Hifadhi</span
+              ><span>Hadi Tsh 2,000,000</span
+              ><span class="loan-rate">Riba 9%/mwaka</span>
+            </div>
+            <div class="loan-row">
+              <span class="loan-type">🛡️ Bima ya Mazao</span
+              ><span>Tsh 15,000–50,000/msimu</span
+              ><span class="loan-rate">Fidia hadi 100%</span>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="fedha-jinsi">
+          <div class="steps-list">
+            <div class="step">
+              <span class="step-num">01</span>
+              <div>
+                <strong>Jenga Historia Yako</strong>
+                <p>
+                  Kwa kutumia mfumo kwa miezi 3+, mfumo unakuunda wasifu wa
+                  mkopo kulingana na historia yako ya kilimo.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">02</span>
+              <div>
+                <strong>Omba Mkopo kwa SMS</strong>
+                <p>
+                  Piga <em>*152*03#</em> au tuma "MKOPO [kiasi] [aina]" kwa
+                  15200. Jibu utapata ndani ya masaa 24.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">03</span>
+              <div>
+                <strong>Thibitisha Masharti</strong>
+                <p>
+                  Mkopo ukikubaliwa, thibitisha masharti yako kwa neno "KUBALI"
+                  kupitia SMS. Pesa itaingia M-Pesa yako mara moja.
+                </p>
+              </div>
+            </div>
+            <div class="step">
+              <span class="step-num">04</span>
+              <div>
+                <strong>Lipa Baada ya Mavuno</strong>
+                <p>
+                  Malipo ya mkopo yameundwa kulingana na kalenda ya mavuno —
+                  ulipe wakati una fedha, si wakati wa upandaji.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-content" id="fedha-faida">
+          <div class="benefits-list">
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Bila Dhamana Ngumu</strong>
+                <p>
+                  Mfumo unatumia historia ya kilimo yako kama dhamana ya mkopo —
+                  huhitaji hati za ardhi au wadhamini.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Lipa Unapopenda</strong>
+                <p>
+                  Ratiba ya malipo inafuata kalenda ya mavuno yako —
+                  hulazimishwi kulipa wakati wa upandaji au kiangazi.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Bima Hulinda Familia</strong>
+                <p>
+                  Hata ukame ukitokea, bima ya mazao itafidia hasara yako —
+                  familia yako haitateseka na deni.
+                </p>
+              </div>
+            </div>
+            <div class="benefit">
+              <span class="benefit-check">✅</span>
+              <div>
+                <strong>Ongeza Uwezo wa Kilimo</strong>
+                <p>
+                  Mkopo wa kilimo unaruhusu kupanua shamba lako, kununua zana
+                  bora, na kuongeza kipato cha familia.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer-cta">
+        <button class="modal-btn-primary" onclick="closeModal()">
+          💳 Omba Mkopo — *152*03#
+        </button>
+        <button class="modal-btn-sec" onclick="closeModal()">Funga</button>
+      </div>
+    </div>
+
+    <!-- ══════════════ IMPACT ══════════════ -->
+    <section class="impact" id="impact">
+      <span class="section-label">Athari kwa Uchumi</span>
+      <h2 class="section-title">Nguvu ya Kilimo cha Kidigitali</h2>
+      <p class="section-body">
+        AgriSmart Tanzania itachangia moja kwa moja kuongeza uzalishaji wa
+        mazao, kuinua kipato cha wakulima, kupunguza utegemezi wa bidhaa za nje,
+        na kukuza uchumi wa taifa katika Dira ya Maendeleo Tanzania 2025.
+      </p>
+
+      <div class="impact-metrics">
+        <div class="metric-card">
+          <div class="metric-icon">📈</div>
+          <div class="metric-num">+35%</div>
+          <div class="metric-label">
+            Ongezeko la uzalishaji wa mazao kwa mkulima mmoja mmoja
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">💰</div>
+          <div class="metric-num">+42%</div>
+          <div class="metric-label">
+            Ongezeko la kipato cha wastani cha kaya za wakulima
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🚜</div>
+          <div class="metric-num">5M+</div>
+          <div class="metric-label">
+            Wakulima watakaonufaika na mfumo katika awamu ya kwanza
+          </div>
+        </div>
+        <div class="metric-card">
+          <div class="metric-icon">🌍</div>
+          <div class="metric-num">−28%</div>
+          <div class="metric-label">
+            Kupungua kwa utegemezi wa uagizaji wa chakula kutoka nje
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════ PARTNERS ══════════════ -->
+    <div class="partners">
+      <p class="partners-title">Washirika na Taasisi Zinazoshirikiana</p>
+      <div class="partners-logos">
+        <span class="partner-badge">Wizara ya Kilimo</span>
+        <span class="partner-badge">TMA – Hali ya Hewa</span>
+        <span class="partner-badge">TCDC</span>
+        <span class="partner-badge">Tanzania Posts Corp.</span>
+        <span class="partner-badge">NIDA</span>
+        <span class="partner-badge">Halmashauri za Wilaya</span>
+        <span class="partner-badge">Benki za Kilimo</span>
+      </div>
+    </div>
+
+    <!-- ══════════════ FOOTER ══════════════ -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div>
+          <div class="footer-brand-title">AgriSmart Tanzania</div>
+          <p class="footer-desc">
+            Mfumo wa kidigitali unaounganisha Tanzania ya vijijini na teknolojia
+            ya kisasa — kwa wakulima, kwa taifa, kwa kesho bora.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h4>Viungo</h4>
+          <ul>
+            <li><a href="#about">Kuhusu Mfumo</a></li>
+            <li><a href="#features">Vipengele</a></li>
+            <li><a href="#impact">Athari</a></li>
+            <li><a href="#">Jarida la Habari</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Wasiliana</h4>
+          <ul>
+            <li>
+              <a href="mailto:info@agrismart.go.tz">info@agrismart.go.tz</a>
+            </li>
+            <li><a href="tel:+255800123456">0800 123 456 (Bure)</a></li>
+            <li><a href="#">Dodoma, Tanzania</a></li>
+            <li><a href="#">Sera ya Faragha</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span
+          >© 2025 AgriSmart Tanzania. Haki zote zimehifadhiwa. Serikali ya
+          Jamhuri ya Muungano wa Tanzania.</span
+        >
+        <div class="footer-vision">
+          <div class="vision-dot"></div>
+          <span
+            >Dira ya Tanzania 2025 — Uchumi wa Kidigitali, Kilimo Imara</span
+          >
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      /* ── Scroll-in animations ── */
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting) {
+              e.target.style.opacity = "1";
+              e.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.12 },
+      );
+
+      document
+        .querySelectorAll(".card, .metric-card, .about-point")
+        .forEach((el) => {
+          el.style.opacity = "0";
+          el.style.transform = "translateY(30px)";
+          el.style.transition = "opacity .55s ease, transform .55s ease";
+          observer.observe(el);
+        });
+
+      document.querySelectorAll(".card").forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.1}s`;
+      });
+      document.querySelectorAll(".metric-card").forEach((card, i) => {
+        card.style.transitionDelay = `${i * 0.1}s`;
+      });
+
+      /* ── Modal System ── */
+      let currentModal = null;
+
+      function openModal(id) {
+        // close any open modal first
+        if (currentModal) _close(currentModal);
+
+        const overlay = document.getElementById("modalOverlay");
+        const modal = document.getElementById("modal-" + id);
+        if (!modal) return;
+
+        overlay.classList.add("active");
+        modal.style.display = "block";
+        // force reflow then animate
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => modal.classList.add("active"));
+        });
+
+        document.body.style.overflow = "hidden";
+        currentModal = id;
+      }
+
+      function closeModal() {
+        if (!currentModal) return;
+        _close(currentModal);
+        document.getElementById("modalOverlay").classList.remove("active");
+        document.body.style.overflow = "";
+        currentModal = null;
+      }
+
+      function _close(id) {
+        const modal = document.getElementById("modal-" + id);
+        if (!modal) return;
+        modal.classList.remove("active");
+        setTimeout(() => {
+          modal.style.display = "none";
+        }, 320);
+      }
+
+      function switchTab(btn, modalId, tabId) {
+        // deactivate all tabs & contents in this modal
+        const modal = document.getElementById("modal-" + modalId);
+        modal
+          .querySelectorAll(".tab-btn")
+          .forEach((b) => b.classList.remove("active"));
+        modal
+          .querySelectorAll(".tab-content")
+          .forEach((c) => c.classList.remove("active"));
+        // activate selected
+        btn.classList.add("active");
+        document.getElementById(modalId + "-" + tabId).classList.add("active");
+      }
+
+      // close on Escape key
+      document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape") closeModal();
+      });
+    </script>
+  </body>
+</html>
